@@ -2,7 +2,7 @@ RayOS
 ==========
 
 * It's a fork of `FullPageOS <https://github.com/guysoft/Fullpageos>`_ to run Ray S/W on RPi3
-* As of now, you will have to manually put the Ray s/w code in filesystem/root_init/
+* As of now, you will have to manually put the Ray s/w code in ``filesystem/root_init/``
 
 Requirements
 ~~~~~~~~~~~~
