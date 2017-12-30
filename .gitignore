@@ -5,3 +5,5 @@ src/build.log
 src/vagrant/.vagrant/*
 src/vagrant/*.log
 src/workspace/*
+src/modules/fullpageos/filesystem/root_init/AstroBox
+src/modules/fullpageos/filesystem/root_init/Ray
