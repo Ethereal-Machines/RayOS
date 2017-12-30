@@ -1,0 +1,10 @@
+[Unit]
+Description=Ray Printer Software
+After=all.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /AstroBox/run --host 0.0.0.0 --config /etc/astrobox/config.yaml
+
+[Install]
+WantedBy=multi-user.target
