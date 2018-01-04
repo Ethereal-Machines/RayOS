@@ -36,13 +36,13 @@ echo "disabled" > /boot/check_for_httpd
 
 if [ "$FULLPAGEOS_INCLUDE_LIGHTTPD" == "yes" ]
 then
-    apt-get install -y usbmount python-pip python-networkmanager python-apt rpl
+    apt-get install -y usbmount python-pip python-networkmanager python-apt
     systemctl enable astrobox.service
     pushd /AstroBox
         /usr/bin/pip install -r requirements.txt
     popd
     pushd /lib/systemd/system/
-	rpl "MountFlags=slave" "MountFlags=shared" systemd-udevd.service
+	    sed -i 's/MountFlags=slave/MountFlags=shared/g' systemd-udevd.service
     popd
 fi
 
