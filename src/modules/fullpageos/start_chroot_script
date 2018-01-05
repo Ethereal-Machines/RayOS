@@ -36,13 +36,19 @@ echo "disabled" > /boot/check_for_httpd
 
 if [ "$FULLPAGEOS_INCLUDE_LIGHTTPD" == "yes" ]
 then
-    apt-get install -y usbmount python-pip python-networkmanager python-apt
+    apt-get install -y usbmount python-pip network-manager python-apt
+    apt-get install -y dbus libdbus-1-dev libdbus-glib-1-dev
     systemctl enable astrobox.service
     pushd /AstroBox
         /usr/bin/pip install -r requirements.txt
     popd
+    #some weird bug in rpi stretch lite
     pushd /lib/systemd/system/
 	    sed -i 's/MountFlags=slave/MountFlags=shared/g' systemd-udevd.service
+    popd
+    #give control to network manager
+    pushd /etc/NetworkManager/
+        sed -i 's/managed=false/managed=true/g' NetworkManager.conf
     popd
 fi
 
